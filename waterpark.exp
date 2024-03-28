@@ -1,0 +1,16 @@
+Begin;
+		Attributes: customer: timein;
+		Variables: xx,2;
+		Queues: regq:
+		       freq;
+		Resources: regular,4: frequent;
+		counters: change;
+		Tallies: 1, flowtimepart1:
+			 2, flowtimepart2:
+			 3,avg.flowtime;
+		Dstat: NQ(regq), regular queue:
+			  NQ(freq), frequent queue:
+			  NR(regular)*100/5, utilization regular:
+			  NR(frequent)*100,utilization frequent;
+		Replicate, 1, 0, 540;
+End;
